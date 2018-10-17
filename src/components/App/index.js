@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import actions from 'store/story/actions';
-import { hasMoreStoriesSelector } from 'store/story/selectors';
+import actions from '../../store/story/actions'; // 'store/story/actions';
+import { hasMoreStoriesSelector } from '../../store/story/selectors';
 import App from './App';
 
 const mapStateToProps = state => ({

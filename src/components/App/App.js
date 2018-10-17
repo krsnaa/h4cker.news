@@ -31,7 +31,7 @@ export class App extends React.Component<Props, State> {
   state = {};
 
   componentDidMount = () => {
-    console.log('App CDM Props:', this.props);
+    //console.log('App CDM Props:', this.props);
     
     this.props.fetchStoriesFirstPage();
   }
