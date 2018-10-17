@@ -1,10 +1,4 @@
-export const buildActionCreator = type => {
-  return (payload = {}) => ({
-    type,
-    payload,
-  });
-};
-
+/* 
 export const buildRequestActionTypes = (type, namespace) => ({
   [`${type}_REQUEST`]: `${namespace}/${type}_REQUEST`,
   [`${type}_SUCCESS`]: `${namespace}/${type}_SUCCESS`,
@@ -21,14 +15,32 @@ export const buildEventActionCreator = type => {
     },
   });
 };
+ */
 
-const mapTypeToRequest = type => ({
-  request: buildActionCreator(`${type}_REQUEST`),
-  success: buildActionCreator(`${type}_SUCCESS`),
-  failure: buildActionCreator(`${type}_FAILURE`),
-});
+export const buildActionCreator = type => {
+  //console.log('buildActionCreator for::', type);
+
+  return (payload = {}) => ({
+    type,
+    payload,
+  });
+};
+
+const mapTypeToRequest = type => {
+  const typeRequestObject = ({
+    request: buildActionCreator(`${type}_REQUEST`),
+    success: buildActionCreator(`${type}_SUCCESS`),
+    failure: buildActionCreator(`${type}_FAILURE`),
+  });
+  //console.log('mapTypeToRequest::', typeRequestObject);
+  return typeRequestObject;
+};
 
 export const buildRequestCreator = (type, requestCallback) => {
-  const request = mapTypeToRequest(type);
-  return (payload = {}) => dispatch => requestCallback({ request, payload, dispatch });
+  //console.log('buildRequestCreator::', type);
+
+  const requestObj = mapTypeToRequest(type);
+  const requestCreator = (payload = {}) => dispatch => requestCallback({ requestObj, payload, dispatch });
+  //console.log(requestObject, requestCreator);
+  return requestCreator;
 };

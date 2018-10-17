@@ -16,10 +16,11 @@ const renderApp = () => {
     
     const initialState = {};
     const store = configureStore(initialState);
-    store.dispatch({ type: '@hackerNewsReader/@@INIT' })
 
     if (process.env.NODE_ENV !== 'production') {
-        console.log('Initial state ->', store.getState());
+        //just to get some console output
+        store.dispatch({ type: '@hackerNewsReader/@@INIT' })
+        //console.log('Initial state ->', store.getState());
     }
 
     ReactDOM.render(
@@ -30,6 +31,8 @@ const renderApp = () => {
     );
 
 };
+
+renderApp();
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

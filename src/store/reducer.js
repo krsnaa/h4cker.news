@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
 import AppReducer from './app/reducer';
-
+import StoryReducer from './story/reducer';
 /*
 * Reducers act on actions.
 * The reducers must be pure. Given the same arguments, it should calculate the next state
@@ -11,6 +11,7 @@ import AppReducer from './app/reducer';
 const rootReducer = combineReducers({
     //state: (state = {}) => state
     app: AppReducer,
+    story: StoryReducer,
 });
 
 export default rootReducer;

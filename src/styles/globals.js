@@ -8,7 +8,6 @@ const setGlobalStyles = () =>
 
     html, body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;      
-      width: 100vw;
       overflow-x: hidden;
       margin: 0;
       padding: 0;
